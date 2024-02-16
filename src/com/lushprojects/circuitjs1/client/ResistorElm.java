@@ -110,9 +110,12 @@ import com.lushprojects.circuitjs1.client.util.Locale;
 	    // ohmString doesn't work here on linux
 	    if (n == 0)
 		return new EditInfo("Resistance (ohms)", resistance, 0, 0);
+		if (n == 1)
+		return new EditInfo("Name", "R1");
 	    return null;
 	}
 	public void setEditValue(int n, EditInfo ei) {
+		if (n == 0)
 	    resistance = (ei.value <= 0) ? 1e-9 : ei.value;
 	}
 	int getShortcut() { return 'r'; }
